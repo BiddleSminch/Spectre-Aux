@@ -1,0 +1,4 @@
+//<'Props_JAM.pbo' properties via Mikero's dos tools, dll version 9.36>
+prefix=Spectre_Aux;
+//PboType=Arma Addon;
+//</properties>
