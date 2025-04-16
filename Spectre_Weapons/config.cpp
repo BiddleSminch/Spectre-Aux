@@ -130,7 +130,7 @@ class CfgMagazines
 		displayName = "ML78 AT Missile";
 		ammo = "MEOP_M_Abrudas_AT_F";
 		count = 1;
-		initSpeed = 20;
+		initSpeed = 200;
 		maxLeadSpeed = 25;
 		mass = 40;
 	};
@@ -142,7 +142,7 @@ class CfgMagazines
 		displayName = "ML78 AA Missile";
 		ammo = "MEOP_M_Abrudas_AA_F";
 		count = 1;
-		initSpeed = 20;
+		initSpeed = 200;
 		maxLeadSpeed = 250;
 		mass = 40;
 	};
