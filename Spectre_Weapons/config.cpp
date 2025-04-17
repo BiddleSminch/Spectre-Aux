@@ -16,7 +16,7 @@ class CfgPatches
 		magazines[] = {"MEOP_ML78Missle_AT_F","MEOP_ML78Missle_AA_F"};
 		ammo[] = {"MEOP_M_Abrudas_AT_F","MEOP_M_Abrudas_AA_F"};
 		requiRedVersion = 0.1;
-		requiRedAddons[] = {"A3_Data_F","A3_Weapons_F","ml78W","MEOP_mag","MEOP_ammo"};
+		requiRedAddons[] = {"A3_Data_F","A3_Weapons_F","JMSME_asari"};
 		author = "JMax";
 	};
 };
