@@ -2,10 +2,10 @@ class CfgPatches
 {
 	class Spectre_Retextures
 	{
-		units[] = {"As_Fem_MidArm_Spectre","As_Underarmor_Spectre","GethArmor_Spectre_Inf"};
-		weapons[] = {"As_Fem_MidArm_Spectre_CombatUniform","As_Underarmor_Spectre_CombatUniform","As_helmet_Spectre","GethArmor_Spectre_inf_CombatUniform"};
-		requiRedVersion = 0.1;
-		requiRedAddons[] = {"A3_Data_F","A3_Weapons_F",};
+		units[] = {"Hum_Aliance_Spectre","As_Fem_MidArm_Spectre","As_Underarmor_Spectre","GethArmor_Spectre_Inf"};
+		weapons[] = {"Hum_Aliance_Spectre_CombatUniform","As_helmet_Spectre","As_Fem_MidArm_Spectre_CombatUniform","As_Underarmor_Spectre_CombatUniform","As_helmet_Spectre","GethArmor_Spectre_inf_CombatUniform"};
+		requiredVersion = 2.18;
+		requiredAddons[] = {"A3_Data_F","A3_Weapons_F","MEOP_human","MEOP_hum_helm","JMSME_asari","MEOP_as_helm","MEOP_geth"};
 		author = "JMax";
 	};
 };
@@ -13,6 +13,18 @@ class CfgPatches
 class CfgVehicles
 {
     class MEOP_Armor_Soldier_Base;
+
+    // Human
+	class Hum_Aliance_Spectre: MEOP_Armor_Soldier_Base
+	{
+		author = "JMax";
+		scope = 1;
+		modelsides[] = {6};
+		model = "\MEOP_human\Alianceform.p3d";
+		nakedUniform = "U_BasicBody";
+		hiddenSelections[] = {"Camo1"};
+		hiddenSelectionsTextures[] = {"Spectre_Aux\Spectre_Retexture\Textures\SST_HumanUni_V1.paa"};
+	};
 
     // Asari
 	class As_Fem_MidArm_Spectre: MEOP_Armor_Soldier_Base
@@ -56,6 +68,65 @@ class CfgWeapons
     class HeadgearItem;
     class ItemCore;
 
+    // Human
+	class Hum_Aliance_Spectre_CombatUniform: Uniform_Base
+	{
+		author = "JMax";
+		scope = 2;
+		displayName = "(Human) Field Uniform (Spectre)";
+		picture = "\MEOP_human\data\ico\Ico_body_alB.paa";
+		nakedUniform = "U_BasicBody";
+		model = "\A3\Characters_F\Common\Suitpacks\suitpack_blufor_diver";
+		class ItemInfo: UniformItem
+		{
+			uniformModel = "-";
+			uniformClass = "Hum_Aliance_Spectre";
+			Armor = 10;
+			modelSides[] = {6};
+			containerClass = "Supply140";
+			mass = 30;
+		};
+	};
+
+
+	class Hum_helmet_Spectre: ItemCore
+	{
+		scope = 2;
+		author = "JMax";
+		weaponPoolAvailable = 1;
+		displayName = "(Human) Helmet (Spectre)";
+		picture = "\MEOP_human\data\ico\Ico_helm_alB.paa";
+		model = "MEOP_human\helmets\Helmet.p3d";
+		hiddenSelections[] = {"Camo1"};
+		hiddenSelectionsTextures[] = {"Spectre_Aux\Spectre_Retexture\Textures\SST_HumanHelm_V1.paa"};
+		class ItemInfo: HeadgearItem
+		{
+			mass = 30;
+			uniformmodel = "MEOP_human\helmets\Helmet.p3d";
+			modelSides[] = {6};
+			hiddenSelections[] = {"Camo1"};
+			material = -1;
+			explosionShielding = 0;
+			minimalHit = 0;
+			passThrough = 0;
+			class HitpointsProtectionInfo
+			{
+				class Head
+				{
+					hitpointName = "HitHead";
+					armor = 24;
+					passThrough = 0.2;
+				};
+				class Face
+				{
+					hitpointName = "HitFace";
+					armor = 24;
+					passThrough = 0.2;
+				};
+			};
+		};
+	};
+
     // Asari
 	class As_Fem_MidArm_Spectre_CombatUniform: Uniform_Base
 	{
@@ -73,7 +144,7 @@ class CfgWeapons
 			uniformClass = "As_Fem_MidArm_Spectre";
 			Armor = 10;
 			modelSides[] = {6};
-			containerClass = "Supply120";
+			containerClass = "Supply140";
 			mass = 10;
 		};
 	};
@@ -91,7 +162,7 @@ class CfgWeapons
 			uniformClass = "As_Underarmor_Spectre";
 			Armor = 10;
 			modelSides[] = {6};
-			containerClass = "Supply50";
+			containerClass = "Supply140";
 			mass = 10;
 		};
 	};
@@ -115,6 +186,24 @@ class CfgWeapons
 			modelSides[] = {6};
 			hiddenSelections[] = {"Camo1"};
     		material = -1;
+			explosionShielding = 0;
+			minimalHit = 0;
+			passThrough = 0;
+			class HitpointsProtectionInfo
+			{
+				class Head
+				{
+					hitpointName = "HitHead";
+					armor = 24;
+					passThrough = 0.2;
+				};
+				class Face
+				{
+					hitpointName = "HitFace";
+					armor = 24;
+					passThrough = 0.2;
+				};
+			};
 		};
 	};
 
@@ -133,7 +222,7 @@ class CfgWeapons
 			uniformClass = "GethArmor_Spectre_Inf";
 			Armor = 20;
 			modelSides[] = {6};
-			containerClass = "Supply100";
+			containerClass = "Supply140";
 			mass = 40;
 		};
 	};
